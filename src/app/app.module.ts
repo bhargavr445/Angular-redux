@@ -1,31 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { HttpModule } from '@angular/http';
 import { NgRedux, NgReduxModule } from '@angular-redux/store';
 
 import { AppComponent } from './app.component';
-import { TodoOverviewComponent } from './todo-overview/todo-overview.component';
-import { TodoListComponent } from './todo-list/todo-list.component';
 
-import { IAppState, rootReducer, INITIAL_STATE } from './store';
+import { IAppState, rootReducer, HOME_INITIAL_STATE } from './store';
+import { AppServiceService } from '../app/app-service.service';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TodoOverviewComponent,
-    TodoListComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     FormsModule,
     NgReduxModule
   ],
-  providers: [],
+  providers: [AppServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor(ngRedux: NgRedux<IAppState>) {
-    ngRedux.configureStore(rootReducer, INITIAL_STATE);
+    ngRedux.configureStore(rootReducer, HOME_INITIAL_STATE);
   }
 }
