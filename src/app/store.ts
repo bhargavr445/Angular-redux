@@ -1,34 +1,63 @@
 
-import {  TOGGLE_TODO, REMOVE_TODO, REMOVE_ALL_TODOS, SEARCH_RESULTS } from './actions';
+import {  TOGGLE_TODO, REMOVE_TODO, REMOVE_ALL_TODOS, SEARCH_RESULTS, PAGE_LOAD } from './actions';
 import { tassign } from 'tassign';
+import {LandingAppState, LANDING_INITIAL_STATE, landingReducer} from './home/store'
+import { combineReducers } from 'redux';
+import { AppLandingPage, APPLANDING_INITIAL_STATE, ApplandingReducer } from '../app/landing/store';
+//this is for the feature module 
+export interface AppState {
+   landing: LandingAppState;
+   appLanding: AppLandingPage
+  //  load_page: boolean;
+  //  appSearchResults: Array<any>;
 
-export interface IAppState {
-   // todos: ITodo[];
-   // lastUpdate: Date;
-   searchResults: Array<any>;
 }
 
-export const HOME_INITIAL_STATE: IAppState = {
-  //  todos: [],
-  //  lastUpdate: null
-  searchResults: []
+//eager loaded module store configs
+// export interface myAppState {
+ 
+// }
+// export const MyApp_INITIAL_STATE: myAppState = {
+  
+
+  
+// }
+export const INITIAL_STATE: AppState = {
+
+  landing: LANDING_INITIAL_STATE,
+  appLanding: APPLANDING_INITIAL_STATE
+  // load_page: false,
+  // appSearchResults: [],
   
 }
 
-function searchResults(state, action) {
-    var newState = state;
-    newState.searchResults = action.searchResults
-    return tassign(state, action);
-}
+// function searchResults(state:AppState, action) {
+//     var newState = state;
+//     newState.searchResults = action.searchResults
+//     return tassign(state, action);
+// }
 
-export function rootReducer(state: IAppState = HOME_INITIAL_STATE, action): IAppState {
+// function pageLoad(state: AppState, action) {
+//   var newState = state;
+  
+//     newState.load_page = action.load_page;
+//     console.log(newState.load_page);
+//     return tassign(state, action);
+// }
+
+// export function appReducer(state: AppState = INITIAL_STATE, action): AppState {
     
-    switch (action.type) {
-        case SEARCH_RESULTS: return searchResults(state, action);
+//     switch (action.type) {
+//         //case SEARCH_RESULTS: return searchResults(state, action);
+//         case PAGE_LOAD : return pageLoad(state, action);
+//     }
+
+//     return state;
+// }
 
 
-
-    }
-    return state;
-}
-
+export const rootReducer = combineReducers({
+  //  appReducers: appReducer,
+    landing: landingReducer,
+    appLanding: ApplandingReducer
+})

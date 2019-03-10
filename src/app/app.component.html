@@ -1,4 +1,4 @@
-<div class="container" id="app">
+<!-- <div class="container" id="app">
   <br/>
     <a href="http://codingthesmartway.com/" target="_blank"><img src="assets/images/logo.png" width="300" /></a>
   <hr>
@@ -26,8 +26,7 @@
           <div class="card-body">
             <h3 class="card-title">Todos App</h3>
             <h6 class="card-subtitle mb-2 text-muted">Using Angular & Redux</h6>
-            <!-- <app-todo-overview></app-todo-overview>
-            <app-todo-list></app-todo-list> -->
+            
           </div>
         </div>
   </div>
@@ -36,10 +35,11 @@
   <div class="footer">
     <p>&copy; <a href="http://codingthesmartway.com" target="_blank">CodingTheSmartWay.com</a> | <a href="http://codingthesmartway.com/imprint" target="_blank">Imprint</a> | <a href="http://codingthesmartway.com/data-privacy-statement/" target="_blank">Data Privacy Statement</a> | <a href="http://codingthesmartway.com/affiliate-disclaimer/" target="_blank">Affiliate Disclaimer</a></p>
   </div>
-</div>
-<!-- <div class="" 
-     role="img"
-     [hidden]=""><img style="margin: 10% 40%; height: 10%"
-     src="assets/img/loader.gif" aria-label="loading"/>
-
 </div> -->
+<router-outlet></router-outlet>
+<div class="" 
+     role="img"
+     *ngIf="load_page"><img style="margin: 10% 40%; height: 10%"
+     src="assets/images/loader.gif" aria-label="loading"/>
+
+</div>
