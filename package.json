@@ -22,13 +22,16 @@
     "@angular/platform-browser": "^7.2.8",
     "@angular/platform-browser-dynamic": "^7.2.8",
     "@angular/router": "^7.2.8",
+    "@ng-bootstrap/ng-bootstrap": "^4.2.1",
+    "bootstrap": "^4.3.1",
     "core-js": "^2.4.1",
     "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.8",
     "rxjs": "^6.4.0",
+    "rxjs-compat": "^6.4.0",
     "tassign": "^1.0.0",
     "tslib": "^1.9.0",
-    "zone.js": "^0.8.14",
-    "rxjs-compat": "^6.0.0-rc.0"
+    "zone.js": "^0.8.14"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
@@ -47,6 +50,7 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "node-sass": "^4.11.0",
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.3.2",

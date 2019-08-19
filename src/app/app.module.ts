@@ -10,7 +10,7 @@ import { rootReducer, INITIAL_STATE } from './store';
 import { AppServiceService } from '../app/app-service.service';
 import { LandingModule } from '../app/landing/landing.module';
 import { LandingComponent } from '../app/landing/landing.component';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { LandingComponent } from '../app/landing/landing.component';
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     RouterModule,
     HttpModule,
     FormsModule,

@@ -12,24 +12,24 @@ export class AppServiceService {
   private subscription: Subscription = new Subscription
   searchResults: Array<any>;
   constructor(private http: Http,
-  private ngRedux: NgRedux<AppState>
-) { 
-   
+    private ngRedux: NgRedux<AppState>
+  ) {
+
     const sub = this.ngRedux.select(state => {
-        return state.landing.searchResults;
-      }).subscribe(result =>{
-        this.searchResults = result;
-        console.log(this.searchResults);
-      })
+      return state.landing.searchResults;
+    }).subscribe(result => {
+      this.searchResults = result;
+      console.log(this.searchResults);
+    })
 
-      this.subscription.add(sub);
-   }
-  loadResults(){
-  this.http.get("http://dummy.restapiexample.com/api/v1/employees").subscribe(status => {
+    this.subscription.add(sub);
+  }
+  loadResults() {
+    this.http.get("http://dummy.restapiexample.com/student/getStudentById/1").subscribe(status => {
 
-  this.ngRedux.dispatch({type: LANDING_SEARCH_RESULTS, searchResults: status.json()});
-  console.log(status.json());
-  this.ngRedux.dispatch({type: PAGE_LOAD, pageLoad: false})
-})
+      this.ngRedux.dispatch({ type: LANDING_SEARCH_RESULTS, searchResults: status.json() });
+      console.log(status.json());
+      this.ngRedux.dispatch({ type: PAGE_LOAD, pageLoad: false })
+    })
   }
 }
