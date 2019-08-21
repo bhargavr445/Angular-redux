@@ -27,7 +27,7 @@
 	</div>
  <div class="col-1-of-2">
 		col-1-of-2
-	</div> 
+	</div>
 </div>
 <div class="row">
 
@@ -115,7 +115,7 @@
 				{{item.id}}
 			</div>
 		</div>
-			date:'fullDate' 
+			date:'fullDate'
 		<div class="span2">
 			<label>
 				<strong>Date</strong>
@@ -148,13 +148,13 @@
 	<input formControlName="name" placeholder="Your name">
 	<input formControlName="email" placeholder="Your email">
 	<input formControlName="message" placeholder="Your message">
-  
+
 	<button type="submit">Send</button>
   </form>
 <label>F Name</label>
   <input type="text" id="fName">
 
-  <label>L Name</label> 
+  <label>L Name</label>
   <input type="text" id="lName">
 
   <button type="submit">Submit</button>-->
@@ -173,7 +173,7 @@
   <br>
   <input type="password">
   <br>
-  <button type="button" >Submit</button> 
+  <button type="button" >Submit</button>
 
 </form> -->
 
@@ -181,8 +181,8 @@
 
 
 
-  <!-- <p style="background-color: aquamarine"> 
-	   inline Style 
+  <!-- <p style="background-color: aquamarine">
+	   inline Style
   Angular
   </p>
 
@@ -280,4 +280,14 @@
       <div class="input-group-append">
         <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
 	  </div>
-	  {{model | json}}
+
+	  <input class="form-control" 
+	  		 placeholder="yyyy-mm-dd"
+			 name="dp" 
+			 [(ngModel)]="endDate" 
+			 ngbDatepicker #e="ngbDatepicker">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary calendar" (click)="e.toggle()" type="button"></button>
+	  </div>
+
+    <button type="button" (click)="checkdate()" name="button">Date Check</button>

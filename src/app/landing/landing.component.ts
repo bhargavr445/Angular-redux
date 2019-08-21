@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
 import { AppState } from '../store';
+import { DateParseFormatter } from '../../utils/ngb-date-fr-parser-formatter';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class LandingComponent implements OnInit {
 model: any;
   firstName: string;
   lastName: string;
-
+  endDate:any;
   student: any;
 
   studentsList: any;
@@ -51,9 +52,9 @@ model: any;
     // ).subscribe(result =>{
     //   this.items = result;
 
-    //   this.items.forEach(function(element) { 
+    //   this.items.forEach(function(element) {
     //     let dateF = new Date();
-    //     element.date = dateF; 
+    //     element.date = dateF;
     //   });
     // })
 
@@ -64,9 +65,9 @@ model: any;
       id: 40,
 
       firstName: 'BHargav',
-  
+
       lastName: 'Ram',
-  
+
       email: 'bhargavr445@gmail.com',
 
       marks: '30'
@@ -82,9 +83,9 @@ model: any;
         id: 11,
 
         firstName: 'Sai',
-    
+
         lastName: 'B',
-    
+
         email: 'sai@gmail.com',
 
         marks: '30'
@@ -93,9 +94,9 @@ model: any;
         id: 12,
 
         firstName: 'SRavani',
-    
+
         lastName: 'R',
-    
+
         email: 'SRavani@gmail.com',
 
       marks: '40'
@@ -104,9 +105,9 @@ model: any;
         id: 13,
 
         firstName: 'prasanna',
-    
+
         lastName: 'R',
-    
+
         email: 'prasanna@gmail.com',
 
         marks: '50'
@@ -116,10 +117,10 @@ model: any;
     // this.studentsList = [
     //   {
 
-    //   }, 
+    //   },
     //   {
 
-    //   }, 
+    //   },
     //   {
 
     //   }
@@ -141,7 +142,7 @@ this.productList = [
     productDesc: 'tech Gadget',
     rating:5
 
-  }, 
+  },
   {
     productid: 11,
     productName: 'X-box',
@@ -172,7 +173,7 @@ console.log(this.productList);
    }
 
 
-   
+
 
   ngOnInit() {
     console.log(this.now);
@@ -180,6 +181,14 @@ console.log(this.productList);
 
   sortResultsBy(sortValue){
     console.log(sortValue);
+  }
+
+
+  checkdate(){
+    let dfp: DateParseFormatter = new DateParseFormatter();
+    let selectedDate = dfp.format(this.model);
+    console.log(selectedDate);
+    console.log(dfp.parse(selectedDate));
   }
 
 }

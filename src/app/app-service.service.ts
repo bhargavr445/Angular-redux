@@ -32,4 +32,25 @@ export class AppServiceService {
       this.ngRedux.dispatch({ type: PAGE_LOAD, pageLoad: false })
     })
   }
+  // deleteAct() {
+  //   this.ngRedux.dispatch({type:PAGE_LOAD, loading: true});
+  //   this.caService.getDeleteInfo(this.caActivityModel.caNum).subscribe(result => 
+  //     {
+  //      this.deleteInfo = result;
+  //    //  console.log(this.deleteInfo);
+  //      this.ngRedux.dispatch({type:PAGE_LOAD, loading: false});
+  //      this.deleteClicked();
+  //   });
+   
+  // }
+  loadAllRres() {
+    this.http.get('').map(result =>{
+      result.json()
+    }, err=>{
+
+    }
+    
+    
+    )
+  }
 }

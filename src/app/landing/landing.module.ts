@@ -5,8 +5,8 @@ import { LandingRoutingModule } from './landing-routing.module';
 import { LandingComponent } from '../landing/landing.component';
 import { NgRedux } from '@angular-redux/store';
 import { FormsModule } from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
+import {NgbModule, NgbDatepickerConfig, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
+import { DateParseFormatter } from '../../utils/ngb-date-fr-parser-formatter';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     FormsModule,
     LandingRoutingModule
-  ]
+  ],
+    providers: [
+//  { provide: NgbDateParserFormatter, useClass: DateParseFormatter },
+{provide: NgbDateParserFormatter, useClass: DateParseFormatter}
+]
 })
 export class LandingModule {
   // constructor(ngRedux: NgRedux<AppLandingPage>) {
