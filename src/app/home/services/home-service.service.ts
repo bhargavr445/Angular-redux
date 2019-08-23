@@ -16,13 +16,13 @@ export class HomeServiceService {
   this.http.get('https://gist.githubusercontent.com/mshafrir/2646763/raw/8b0dbb93521f5d6889502305335104218454c2bf/states_titlecase.json')
   .subscribe(result => {
 
-    this.ngRedux.dispatch({type: PAGE_LOAD, pageLoad: false})
+    this.ngRedux.dispatch({type: PAGE_LOAD, pageLoad: false});
     
    this.ngRedux.dispatch({type: GET_ALL_STATES, allStates: result.json()})
 
   }, err => {
 
-    this.ngRedux.dispatch({type: PAGE_LOAD, pageLoad: false})
+    this.ngRedux.dispatch({type: PAGE_LOAD, pageLoad: false});
 
   })
   }

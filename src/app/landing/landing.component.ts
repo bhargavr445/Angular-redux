@@ -177,6 +177,7 @@ console.log(this.productList);
 
   ngOnInit() {
     console.log(this.now);
+    
   }
 
   sortResultsBy(sortValue){
@@ -185,10 +186,19 @@ console.log(this.productList);
 
 
   checkdate(){
+
     let dfp: DateParseFormatter = new DateParseFormatter();
-    let selectedDate = dfp.format(this.model);
-    console.log(selectedDate);
-    console.log(dfp.parse(selectedDate));
+     let selectedDate = dfp.format(this.model);
+     console.log(this.model);
+     console.log(this.endDate);
+    console.log(new Date(selectedDate));
+     console.log(new Date(dfp.format(this.endDate)));
+
+    if((new Date(dfp.format(this.model)))>(new Date(dfp.format(this.endDate)))){
+      console.log('Wrong');
+    } else {
+      console.log('Correct');
+    }
   }
 
 }

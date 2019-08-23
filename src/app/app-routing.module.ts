@@ -22,6 +22,8 @@ const appRoutes:Routes=[
 //   }
 ];
 
+// git commit -m "Some message"
+
 @NgModule({
   imports: [
     CommonModule,
