@@ -11,10 +11,14 @@ import { AppServiceService } from '../app/app-service.service';
 import { LandingModule } from '../app/landing/landing.module';
 import { LandingComponent } from '../app/landing/landing.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { EmployeeComponent } from './employee/employee.component';
+import { EmployeeResolverService } from './employee-resolver.service';
+import { EmployeeListResolverService } from './employee-list-resolver.service';
 
 @NgModule({
   declarations: [
     AppComponent,
+    EmployeeComponent,
     
 
   ],
@@ -28,7 +32,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     LandingModule
   ],
-  providers: [AppServiceService],
+  providers: [AppServiceService, EmployeeResolverService, EmployeeListResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
