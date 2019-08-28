@@ -18,7 +18,7 @@ export class AppComponent {
   load_page: boolean = false;
   constructor(private http: Http, private appService: AppServiceService,
     private ngRedux: NgRedux<AppState>) { 
-      this.ngRedux.dispatch({type: PAGE_LOAD, pageLoad: true})
+     // this.ngRedux.dispatch({type: PAGE_LOAD, pageLoad: true})
 
 
   const sub = this.ngRedux.select(state => {
