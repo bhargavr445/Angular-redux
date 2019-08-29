@@ -8,14 +8,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EmployeeComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { 
+  employee: any;
+  empList: Array<any>;
+
+  constructor(private route: ActivatedRoute) {
 
   }
 
   ngOnInit() {
-    this.route.data.subscribe(data => console.log('Data :', data['employee']));
-    this.route.data.subscribe(data => console.log('Data :', data['empList']));
-    //console.log(this.route.snapshot.data['employee']);
+    this.route.data.subscribe(data => {
+      this.employee = data['employee'];
+      console.log('Data :', data['employee']);
+    });
+
+    this.route.data.subscribe(data => {
+      this.empList = data['empList'];
+      console.log('Data :', data['empList']);
+    }
+    );
   }
 
 }

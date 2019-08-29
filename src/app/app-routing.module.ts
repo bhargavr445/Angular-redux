@@ -12,11 +12,8 @@ const appRoutes:Routes=[
     {path: '', redirectTo:'landing', pathMatch:'full'},
     {path: 'home', loadChildren:'./home/home.module#HomeModule'},
     {path: 'employee', component: EmployeeComponent, 
-                       resolve: {employee: EmployeeResolverService
-                        , 
-                                 empList: EmployeeListResolverService
-                              }
-                                }
+                       resolve: {employee: EmployeeResolverService,
+                                 empList: EmployeeListResolverService}}
 //   { path:'employee',      
 //     loadChildren:'app/modules/employee.module#EmployeeModule',    
 //     data: { preload: true }
