@@ -16,6 +16,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   ngOnInit() {
+   
     this.route.data.subscribe(data => {
       this.employee = data['employee'];
       console.log('Data :', data['employee']);
@@ -26,6 +27,21 @@ export class EmployeeComponent implements OnInit {
       console.log('Data :', data['empList']);
     }
     );
+    
+    this.createForm();
   }
+
+  createForm(){
+    let i=10;
+    j=100;
+    if(i<=10){
+     var j=20;
+      const a: number=10;
+    }
+    // console.log(j);
+    // console.log(a);
+  }
+
+  
 
 }
