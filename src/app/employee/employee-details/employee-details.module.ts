@@ -6,6 +6,7 @@ import { EmployeeDetailsComponent } from './employee-details.component';
 import { EmployeeCentercontentComponent } from './employee-centercontent/employee-centercontent.component';
 import { EmployeeLeftmenuComponent } from './employee-leftmenu/employee-leftmenu.component';
 import { SharedModule } from '../../shared.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SharedModule } from '../../shared.module';
   imports: [
     CommonModule,
     EmployeeDetailsRoutingModule,
-    SharedModule
+    SharedModule,
+    NgbModule
   ]
 })
 export class EmployeeDetailsModule { }

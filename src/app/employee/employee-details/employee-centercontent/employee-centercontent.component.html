@@ -1,4 +1,21 @@
-<p>
+<!-- <p>
   employee-centercontent works!
-</p>
-<router-outlet></router-outlet>
+</p> -->
+
+<!-- <div *ngFor="let panel of accPanels">
+  <p>{{panel.title}}</p>
+</div> -->
+ <ngb-accordion #acc="ngbAccordion" 
+                activeIds="infoPanel"
+                [destroyOnHide]="true"
+                [closeOthers]="true">
+<ngb-panel *ngFor="let panel of accPanels" id="{{panel.id}}">
+  <ng-template ngbPanelTitle>
+      <span>{{panel.title}}</span>
+  </ng-template >
+  <ng-template ngbPanelContent>
+    <router-outlet></router-outlet>
+  </ng-template>
+  
+</ngb-panel>
+</ngb-accordion> 

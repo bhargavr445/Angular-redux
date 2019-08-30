@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeCentercontentComponent implements OnInit {
 
+  accPanels:any = [
+    {id:'infoPanel', title:'Emp Info Panel'},
+    {id:'contactPanel', title:'Emp Contact Panel'}
+  ]
   constructor() { }
 
   ngOnInit() {
