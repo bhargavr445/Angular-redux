@@ -8,7 +8,11 @@ import { EmployeeLeftmenuComponent } from './employee-leftmenu/employee-leftmenu
 import { SharedModule } from '../../shared.module';
 
 @NgModule({
-  declarations: [EmployeeDetailsComponent, EmployeeCentercontentComponent, EmployeeLeftmenuComponent],
+  declarations: [
+    EmployeeDetailsComponent, 
+    EmployeeCentercontentComponent, 
+    EmployeeLeftmenuComponent
+  ],
   imports: [
     CommonModule,
     EmployeeDetailsRoutingModule,

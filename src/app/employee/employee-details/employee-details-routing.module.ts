@@ -5,9 +5,9 @@ import { EmployeeDetailsComponent } from '../employee-details/employee-details.c
 
 const routes: Routes = [
   {path: '', component: EmployeeDetailsComponent, children:[
-    {path: 'employeeInfo', 
+    {path: 'employee-info', 
             loadChildren:'./employee-centercontent/employee-primary-info/employee-primary-info.module#EmployeePrimaryInfoModule'},
-    {path: 'employeeInfo', 
+    {path: 'employee-contact-info', 
             loadChildren:'./employee-centercontent/employee-contact-info/employee-contact-info.module#EmployeeContactInfoModule'}
 
   ]}
