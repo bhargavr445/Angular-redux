@@ -111,15 +111,15 @@ export class FilterComponent implements OnInit, OnDestroy {
     else
         console.log('2');
       this.showDetails = true
-    const index = this.students.filter(stu => {
-      if (stu.name == stuName) {
-        let s: any;
-        s.push(stu);
-        return s;
-      }
-    })
+    // const index = this.students.filter(stu => {
+    //   if (stu.name == stuName) {
+    //     let s: any;
+    //     s.push(stu);
+    //     return s;
+    //   }
+    // })
     // .map(stu => stu.id);
-     console.log(index);
+   //  console.log(index);
      let stuIndex: Employee;
   //  
   stuIndex =this.students.find(s => s.name == stuName);

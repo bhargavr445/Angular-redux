@@ -7,10 +7,7 @@ import { EmployeeListResolverService } from './services/employee-list-resolver.s
 
 const routes: Routes = [
   {
-    path: '', component: EmployeeComponent, resolve: {
-      employee: EmployeeResolverService,
-      empList: EmployeeListResolverService
-    }, children: [
+    path: '', component: EmployeeComponent, children: [
 
       { path: 'emp-search', loadChildren: './filter-results/filter-results.module#FilterResultsModule' },
       { path: 'emp-details', loadChildren: './employee-details/employee-details.module#EmployeeDetailsModule' }
