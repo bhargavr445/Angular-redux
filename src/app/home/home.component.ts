@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       }
     ).subscribe(result =>{
       this.resultsList = result;
-      console.log(this.resultsList);
+    //  console.log(this.resultsList);
     })
     // this.ngRedux.select(state => {
     //   return state.appLanding.pageLoad;
@@ -75,7 +75,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       }
     ).subscribe(result =>{
      this.cnctStateArray = result;
-      console.log(result);
+     // console.log(result);
     })
 
 //this.subscription.add(sub1);
@@ -84,8 +84,8 @@ this.
 sampleForm.
 valueChanges.
 subscribe(form => {
-  console.log(this.sampleForm);
-  console.log(this.sampleForm.getRawValue());
+ // console.log(this.sampleForm);
+ // console.log(this.sampleForm.getRawValue());
   // if(this.sampleForm.get['state'].value){
     
   // }
@@ -130,8 +130,8 @@ subscribe(form => {
     this.isFormSubmitted = true;
     if(this.sampleForm.valid){
       this.isFormSubmitted = false;
-      console.log(this.sampleForm.controls['state'].value.name);
-    console.log(this.sampleForm.controls['state'].valid);
+   //   console.log(this.sampleForm.controls['state'].value.name);
+   // console.log(this.sampleForm.controls['state'].valid);
     }
     
   }

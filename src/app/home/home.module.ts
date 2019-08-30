@@ -14,7 +14,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   declarations: [HomeComponent],
   imports: [
     CommonModule,
-   
     HomeRoutingModule,
     FormsModule,
     HttpModule,

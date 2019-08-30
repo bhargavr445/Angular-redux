@@ -18,7 +18,7 @@ export class EmployeeResolverService implements Resolve<any>{
       .map(data => {
         return data.json();
       }, err => {
-        console.log('API CALL FAILED');
+       // console.log('API CALL FAILED');
       })
 
   }

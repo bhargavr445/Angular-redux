@@ -5,6 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import {LandingAppState, LANDING_INITIAL_STATE, landingReducer} from './home/store'
 import { combineReducers } from 'redux';
 import { AppLandingPage, APPLANDING_INITIAL_STATE, ApplandingReducer } from '../app/landing/store';
+import { EmployeeAppState, EMPLOYEE_INITIAL_STATE, EmployeeReducer } from './employee/store';
 //this is for the feature module 
 
 
@@ -12,7 +13,9 @@ export interface AppState {
 
    landing: LandingAppState;
 
-   appLanding: AppLandingPage
+   appLanding: AppLandingPage;
+
+   employee: EmployeeAppState;
  
 
 }
@@ -22,7 +25,10 @@ export const INITIAL_STATE: AppState = {
 
   landing: LANDING_INITIAL_STATE,
 
-  appLanding: APPLANDING_INITIAL_STATE
+  appLanding: APPLANDING_INITIAL_STATE,
+
+  employee: EMPLOYEE_INITIAL_STATE,
+  
  
   
 }
@@ -34,6 +40,8 @@ export const rootReducer = combineReducers({
 
     landing: landingReducer,
 
-    appLanding: ApplandingReducer
+    appLanding: ApplandingReducer,
+
+    employee: EmployeeReducer,
 
 })

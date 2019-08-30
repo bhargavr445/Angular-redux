@@ -7,3 +7,6 @@ export const LANDING_SEARCH_RESULTS = 'LANDING_SEARCH_RESULTS';
 export const PAGE_LOAD = 'PAGE_LOAD';
 
 export const GET_ALL_STATES="GET_ALL_STATES";
+
+
+export const FILTER_FORM="FILTER_FORM";

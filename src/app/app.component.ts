@@ -25,7 +25,7 @@ export class AppComponent {
     return state.appLanding.pageLoad;
   }).subscribe(result =>{
     this.load_page = result;
-    console.log(this.load_page);
+   // console.log(this.load_page);
   })
 
   this.subscription.add(sub);

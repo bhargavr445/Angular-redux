@@ -1,38 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgRedux, NgReduxModule } from '@angular-redux/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RouterModule }             from "@angular/router";
 import { rootReducer, INITIAL_STATE } from './store';
 import { AppServiceService } from '../app/app-service.service';
 import { LandingModule } from '../app/landing/landing.module';
 import { LandingComponent } from '../app/landing/landing.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { EmployeeComponent } from './employee/employee.component';
-import { EmployeeResolverService } from './employee-resolver.service';
-import { EmployeeListResolverService } from './employee-list-resolver.service';
+import { SharedModule } from './shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeComponent,
     
 
   ],
   imports: [
     BrowserModule,
-    NgbModule,
-    RouterModule,
-    HttpModule,
-    FormsModule,
-    NgReduxModule,
     AppRoutingModule,
-    LandingModule
+    LandingModule,
+    ReactiveFormsModule,
+    SharedModule
   ],
-  providers: [AppServiceService, EmployeeResolverService, EmployeeListResolverService],
+  providers: [AppServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

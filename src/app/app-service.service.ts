@@ -17,7 +17,7 @@ export class AppServiceService {
       return state.landing.searchResults;
     }).subscribe(result => {
       this.searchResults = result;
-      console.log(this.searchResults);
+     // console.log(this.searchResults);
     })
 
     this.subscription.add(sub);
@@ -28,10 +28,10 @@ export class AppServiceService {
     this.http.get("http://dummy.restapiexample.com/student/getStudentById").subscribe(status => {
 
       this.ngRedux.dispatch({ type: LANDING_SEARCH_RESULTS, searchResults: status.json() });
-      console.log(status.json());
+    //  console.log(status.json());
       this.ngRedux.dispatch({ type: PAGE_LOAD, pageLoad: false })
     }, err => {
-      console.log('URL Failed');
+     // console.log('URL Failed');
       this.ngRedux.dispatch({ type: PAGE_LOAD, pageLoad: false })
     })
   }
