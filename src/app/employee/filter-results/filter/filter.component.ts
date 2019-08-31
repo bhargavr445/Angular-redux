@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgRedux } from '@angular-redux/store';
 import { FILTER_FORM } from '../../../actions';
 import { AppState } from '../../../store';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-filter',
@@ -26,7 +27,7 @@ export class FilterComponent implements OnInit, OnDestroy {
   employees: any = [{ id: 1, name: "test" }, { id: 2, name: "test" }, { id: 3, name: "test" }];
 
   constructor(private route: ActivatedRoute,
-    private fb: FormBuilder,
+    private fb: FormBuilder, private router: Router,
     private ngRedux: NgRedux<AppState>) {
   }
 
@@ -34,12 +35,12 @@ export class FilterComponent implements OnInit, OnDestroy {
     this.createForm();
     this.route.data.subscribe(data => {
       this.employee = data['employee'];
-      console.log('Data :', data['employee']);
+     // console.log('Data :', data['employee']);
     });
 
     this.route.data.subscribe(data => {
       this.empList = data['empList'];
-      console.log('Data :', data['empList']);
+     // console.log('Data :', data['empList']);
     }
     );
 
@@ -47,7 +48,7 @@ export class FilterComponent implements OnInit, OnDestroy {
       return state.employee.formObj
     }).subscribe(result => {
       this.employeeForm = result;
-      console.log(this.employeeForm);
+    //  console.log(this.employeeForm);
     });
     this.subscription.add(sub1);
   }
@@ -63,8 +64,8 @@ export class FilterComponent implements OnInit, OnDestroy {
 
   createForm() {
     this.empForm = this.fb.group({
-      firstName: [null, Validators.compose([Validators.required, this.checkValid, this.hasNumber])],
-      lastName: [null, Validators.compose([this.noWhitespaceValidator])]
+      firstName: [null, Validators.compose([Validators.required, this.checkValid, this.whiteSpaceValidator,this.hasNumber])],
+      lastName: [null, Validators.compose([ this.whiteSpaceValidator])]
     }, {
         //validator: [this.checkValid]
       })
@@ -81,6 +82,14 @@ export class FilterComponent implements OnInit, OnDestroy {
   hasNumber(control: FormControl) {
     if (/\d/.test(control.value)) {
       return { 'hasNumber': true }
+    } else {
+      return null;
+    }
+  }
+
+  whiteSpaceValidator(control: FormControl) {
+    if(control.value && !control.value.trim()){
+      return {'whiteSpaceValidator': true}
     } else {
       return null;
     }
@@ -137,6 +146,9 @@ export class FilterComponent implements OnInit, OnDestroy {
     });
   }
 
+  goToDetailPage(){
+    this.router.navigate(['employee/emp-details/infoPanel']);
+  }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();

@@ -1,13 +1,19 @@
 
 import { tassign } from 'tassign';
-import { FILTER_FORM } from '../actions';
+import { FILTER_FORM, DETAIL_DB_DATA, FORM_DATA, ACTIVE_PANEL } from '../actions';
 
 export interface EmployeeAppState {
     formObj: any;
+    dbObj: any;
+    detailFormObj: any;
+    activePanel: string;
 }
 
 export const EMPLOYEE_INITIAL_STATE:  EmployeeAppState = {
     formObj: [],
+    dbObj: null,
+    detailFormObj: null,
+    activePanel: 'infoPanel',
     
 }
 
@@ -16,10 +22,28 @@ function empFilter(state: EmployeeAppState, action){
     newState.formObj = action.formObj
     return tassign(state, newState);
 }
+function detailDbObj(state: EmployeeAppState, action){
+    var newState = state;
+    newState.dbObj = action.dbObj
+    return tassign(state, newState);
+}
+function formObj(state: EmployeeAppState, action){
+    var newState = state;
+    newState.detailFormObj = action.detailFormObj
+    return tassign(state, newState);
+}
+function returnActivePanel(state: EmployeeAppState, action){
+    var newState = state;
+    newState.activePanel = action.activePanel
+    return tassign(state, newState);
+}
 
  export function EmployeeReducer(state: EmployeeAppState = EMPLOYEE_INITIAL_STATE, action): EmployeeAppState {
     switch(action.type){
          case FILTER_FORM: return empFilter(state, action);
+         case DETAIL_DB_DATA: return detailDbObj(state, action);
+         case FORM_DATA: return formObj(state, action);
+         case ACTIVE_PANEL: return returnActivePanel(state, action);
      }
      return state;
  }

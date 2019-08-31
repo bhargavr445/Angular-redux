@@ -11,19 +11,28 @@ import { LandingModule } from '../app/landing/landing.module';
 import { LandingComponent } from '../app/landing/landing.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './shared.module';
-
+import { environment } from '../environments/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
 @NgModule({
   declarations: [
     AppComponent,
-    
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LandingModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    // !environment.production ? StoreDevtoolsModule.instrument() : []
+  //  StoreModule.forRoot({rootReducer}),
+    //StoreRouterConnectingModule,
+    //StoreRouterConnectingModule.forRoot(),
+    // StoreDevtoolsModule.instrument({
+    //   maxAge: 25 //  Retains last 25 states
+    // }),
+   // !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [AppServiceService],
   bootstrap: [AppComponent]

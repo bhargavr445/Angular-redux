@@ -8,5 +8,8 @@ export const PAGE_LOAD = 'PAGE_LOAD';
 
 export const GET_ALL_STATES="GET_ALL_STATES";
 
-
+//emp actions.
 export const FILTER_FORM="FILTER_FORM";
+export const DETAIL_DB_DATA='DETAIL_DB_DATA';
+export const FORM_DATA='FORM_DATA';
+export const ACTIVE_PANEL = 'ACTIVE_PANEL';

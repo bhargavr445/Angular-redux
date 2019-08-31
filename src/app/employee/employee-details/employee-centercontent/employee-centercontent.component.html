@@ -6,6 +6,7 @@
   <p>{{panel.title}}</p>
 </div> -->
  <ngb-accordion #acc="ngbAccordion" 
+                (panelChange)="beforeChange($event)"
                 activeIds="infoPanel"
                 [destroyOnHide]="true"
                 [closeOthers]="true">

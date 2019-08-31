@@ -12,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {EmployeeListResolverService} from './services/employee-list-resolver.service';
 import {EmployeeResolverService} from './services/employee-resolver.service';
 import {NgbAccordionConfig} from '@ng-bootstrap/ng-bootstrap';
+import { EmployeeDetailResolverService } from './services/employee-detail-resolver.service';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import {NgbAccordionConfig} from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     ReactiveFormsModule
   ],
-  providers: [EmployeeResolverService, EmployeeListResolverService, NgbAccordionConfig],
+  providers: [EmployeeResolverService, 
+              EmployeeListResolverService, 
+              NgbAccordionConfig],
 })
 export class EmployeeModule { }
