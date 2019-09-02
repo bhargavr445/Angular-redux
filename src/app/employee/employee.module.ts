@@ -13,6 +13,7 @@ import {EmployeeListResolverService} from './services/employee-list-resolver.ser
 import {EmployeeResolverService} from './services/employee-resolver.service';
 import {NgbAccordionConfig} from '@ng-bootstrap/ng-bootstrap';
 import { EmployeeDetailResolverService } from './services/employee-detail-resolver.service';
+import { StudentService } from './services/student.service';
 
 @NgModule({
   declarations: [
@@ -24,10 +25,12 @@ import { EmployeeDetailResolverService } from './services/employee-detail-resolv
     FormsModule,
     HttpModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [EmployeeResolverService, 
               EmployeeListResolverService, 
+              StudentService,
               NgbAccordionConfig],
 })
 export class EmployeeModule { }

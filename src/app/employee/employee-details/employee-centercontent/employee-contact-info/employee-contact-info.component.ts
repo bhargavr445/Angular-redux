@@ -14,7 +14,7 @@ export class EmployeeContactInfoComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('1-Destroyed');
+    console.log('COntact COmponent Destroyed');
   }
 
 }

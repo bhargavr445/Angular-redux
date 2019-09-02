@@ -15,6 +15,7 @@ import { environment } from '../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,7 @@ import { StoreModule } from '@ngrx/store';
     ReactiveFormsModule,
     SharedModule,
     // !environment.production ? StoreDevtoolsModule.instrument() : []
-  //  StoreModule.forRoot({rootReducer}),
+    StoreModule.forRoot({rootReducer}),
     //StoreRouterConnectingModule,
     //StoreRouterConnectingModule.forRoot(),
     // StoreDevtoolsModule.instrument({

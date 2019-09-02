@@ -1,5 +1,5 @@
 <div class="mainForm">
-  <form [formGroup]="empForm" (submit)="createNewStudent()">
+  <form [formGroup]="empForm" (submit)="createNewStudent()" (keyup.enter)="createNewStudent()">
     <label>First Name*</label>
     <input [ngClass]=" (!empForm.controls['firstName'].valid && empForm.controls['firstName'].errors.lengthError)
                       || (!empForm.controls['firstName'].valid && empForm.controls['firstName'].errors.hasNumber)
@@ -29,3 +29,14 @@
     <td>{{student.name}}</td>
   </tr>
 </table> -->
+
+<div>
+ 
+     <input type="input" 
+            [(ngModel)]="myName" 
+            name="myName" />
+     <button type="submit" appSubmit
+            (click)="getMyName()" (keyup.enter)="getMyName()">Test Enter</button>
+ 
+ 
+</div>

@@ -5,8 +5,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgRedux, NgReduxModule } from '@angular-redux/store';
 import { RouterModule }             from "@angular/router";
+import { SubmitDirective } from './submit.directive';
 @NgModule({
-  declarations: [],
+  declarations: [SubmitDirective],
   imports: [
     HttpModule,
     NgbModule,

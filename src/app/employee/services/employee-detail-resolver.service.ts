@@ -14,12 +14,12 @@ export class EmployeeDetailResolverService implements Resolve<any> {
 
   }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    this.http.get('../../../assets/data/data.json').subscribe(data => {
-      this.ngRedux.dispatch({ type: DETAIL_DB_DATA, dbObj: data.json() });
-      this.ngRedux.dispatch({ type: FORM_DATA, detailFormObj: data.json() });
-    }, err => {
-      console.log('Emp Details API call failed');
-    })
-  }
+  //   this.http.get('../../../assets/data/data.json').subscribe(data => {
+  //     this.ngRedux.dispatch({ type: DETAIL_DB_DATA, dbObj: data.json() });
+  //     this.ngRedux.dispatch({ type: FORM_DATA, detailFormObj: data.json() });
+  //   }, err => {
+  //     console.log('Emp Details API call failed');
+  //   })
+   }
 
 }

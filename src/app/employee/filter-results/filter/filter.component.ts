@@ -8,6 +8,7 @@ import { NgRedux } from '@angular-redux/store';
 import { FILTER_FORM } from '../../../actions';
 import { AppState } from '../../../store';
 import { Router } from '@angular/router';
+import { StudentService } from '../../services/student.service';
 
 @Component({
   selector: 'app-filter',
@@ -27,8 +28,9 @@ export class FilterComponent implements OnInit, OnDestroy {
   employees: any = [{ id: 1, name: "test" }, { id: 2, name: "test" }, { id: 3, name: "test" }];
 
   constructor(private route: ActivatedRoute,
-    private fb: FormBuilder, private router: Router,
-    private ngRedux: NgRedux<AppState>) {
+              private studentService: StudentService,
+              private fb: FormBuilder, private router: Router,
+              private ngRedux: NgRedux<AppState>) {
   }
 
   ngOnInit() {
@@ -147,11 +149,16 @@ export class FilterComponent implements OnInit, OnDestroy {
   }
 
   goToDetailPage(){
+    this.studentService.getStudentDetails();
     this.router.navigate(['employee/emp-details/infoPanel']);
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+myName: string;
+  getMyName(){
+console.log(this.myName);
   }
 
 }

@@ -1,6 +1,6 @@
 
 import { tassign } from 'tassign';
-import { FILTER_FORM, DETAIL_DB_DATA, FORM_DATA, ACTIVE_PANEL } from '../actions';
+import { FILTER_FORM, DETAIL_DB_DATA, FORM_DATA, ACTIVE_PANNEL } from '../actions';
 
 export interface EmployeeAppState {
     formObj: any;
@@ -13,7 +13,7 @@ export const EMPLOYEE_INITIAL_STATE:  EmployeeAppState = {
     formObj: [],
     dbObj: null,
     detailFormObj: null,
-    activePanel: 'infoPanel',
+    activePanel: null,
     
 }
 
@@ -32,18 +32,21 @@ function formObj(state: EmployeeAppState, action){
     newState.detailFormObj = action.detailFormObj
     return tassign(state, newState);
 }
-function returnActivePanel(state: EmployeeAppState, action){
+
+function activePannel(state: EmployeeAppState, action){
     var newState = state;
     newState.activePanel = action.activePanel
+    console.log(newState.activePanel);
     return tassign(state, newState);
 }
+
 
  export function EmployeeReducer(state: EmployeeAppState = EMPLOYEE_INITIAL_STATE, action): EmployeeAppState {
     switch(action.type){
          case FILTER_FORM: return empFilter(state, action);
          case DETAIL_DB_DATA: return detailDbObj(state, action);
          case FORM_DATA: return formObj(state, action);
-         case ACTIVE_PANEL: return returnActivePanel(state, action);
+         case ACTIVE_PANNEL: return activePannel(state, action);
      }
      return state;
  }
