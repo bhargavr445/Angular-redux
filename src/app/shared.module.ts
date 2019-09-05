@@ -6,6 +6,9 @@ import { HttpModule } from '@angular/http';
 import { NgRedux, NgReduxModule } from '@angular-redux/store';
 import { RouterModule }             from "@angular/router";
 import { SubmitDirective } from './submit.directive';
+import { StoreModule } from '@ngrx/store';
+import { rootReducer, INITIAL_STATE } from './store';
+
 @NgModule({
   declarations: [SubmitDirective],
   imports: [
@@ -13,7 +16,12 @@ import { SubmitDirective } from './submit.directive';
     NgbModule,
     FormsModule,
     NgReduxModule,
-    RouterModule
+    RouterModule,
+    StoreModule.forRoot({rootReducer}),
   ]
 })
-export class SharedModule { }
+export class SharedModule { 
+  constructor(ngRedux: NgRedux<{}>) {
+    ngRedux.configureStore(rootReducer, INITIAL_STATE);
+  }
+}

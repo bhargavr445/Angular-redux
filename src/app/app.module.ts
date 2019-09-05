@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { NgRedux, NgReduxModule } from '@angular-redux/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { rootReducer, INITIAL_STATE } from './store';
+import { INITIAL_STATE } from './store';
 import { AppServiceService } from '../app/app-service.service';
 import { LandingModule } from '../app/landing/landing.module';
 import { LandingComponent } from '../app/landing/landing.component';
@@ -14,11 +14,14 @@ import { SharedModule } from './shared.module';
 import { environment } from '../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import { StoreModule } from '@ngrx/store';
+import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ import { StoreModule } from '@ngrx/store';
     ReactiveFormsModule,
     SharedModule,
     // !environment.production ? StoreDevtoolsModule.instrument() : []
-    StoreModule.forRoot({rootReducer}),
+    
     //StoreRouterConnectingModule,
     //StoreRouterConnectingModule.forRoot(),
     // StoreDevtoolsModule.instrument({
@@ -39,7 +42,5 @@ import { StoreModule } from '@ngrx/store';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(ngRedux: NgRedux<{}>) {
-    ngRedux.configureStore(rootReducer, INITIAL_STATE);
-  }
+ 
 }

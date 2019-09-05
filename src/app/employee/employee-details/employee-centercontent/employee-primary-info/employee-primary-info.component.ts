@@ -16,12 +16,13 @@ export class EmployeePrimaryInfoComponent implements OnInit, OnDestroy {
   }
   ngOnInit() {
     console.log('component created');
-  //  this.ngRedux.select(state => {
-  //     return state.employee.detailFormObj
-  //   }).subscribe(result => {
-  //     this.employeeDetails = result;
-  //     console.log(this.employeeDetails);
-  //   });
+   this.ngRedux.select(state => {
+      return state.employee.dbObj
+    }).subscribe(result => {
+      console.log(result);
+      this.employeeDetails = result;
+      console.log(this.employeeDetails);
+    });
   this.ngRedux.select(
     state => {
       return state.employee.formObj;
