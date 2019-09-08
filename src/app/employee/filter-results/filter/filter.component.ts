@@ -5,7 +5,7 @@ import { Employee } from '../../models/EmployeeModel';
 import { STUDENT } from '../../employee';
 import { ActivatedRoute } from '@angular/router';
 import { NgRedux } from '@angular-redux/store';
-import { FILTER_FORM } from '../../../actions';
+import { FILTER_FORM, ACTIVE_PANNEL } from '../../../actions';
 import { AppState } from '../../../store';
 import { Router } from '@angular/router';
 import { StudentService } from '../../services/student.service';
@@ -151,6 +151,7 @@ export class FilterComponent implements OnInit, OnDestroy {
   goToDetailPage(){
     this.studentService.getStudentDetails();
     this.router.navigate(['employee/emp-details/infoPanel']);
+    this.ngRedux.dispatch({type:ACTIVE_PANNEL, activePanel:'infoPanel' });
   }
 
   ngOnDestroy() {

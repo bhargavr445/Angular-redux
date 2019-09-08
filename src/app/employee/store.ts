@@ -25,13 +25,13 @@ function empFilter(state: EmployeeAppState, action){
 function detailDbObj(state: EmployeeAppState, action){
     var newState = state;
     newState.dbObj = action.dbObj
-    console.log(newState.dbObj);
+   
     return tassign(state, newState);
 }
 function formObj(state: EmployeeAppState, action){
     var newState = state;
     newState.detailFormObj = action.detailFormObj
-    console.log(newState.detailFormObj);
+    
     return tassign(state, newState);
 }
 

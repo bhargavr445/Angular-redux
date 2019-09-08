@@ -7,6 +7,7 @@ import { EmployeeCentercontentComponent } from './employee-centercontent/employe
 import { EmployeeLeftmenuComponent } from './employee-leftmenu/employee-leftmenu.component';
 import { SharedModule } from '../../shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,8 +17,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     EmployeeDetailsRoutingModule,
     SharedModule,
+    ReactiveFormsModule,
     NgbModule
   ]
 })

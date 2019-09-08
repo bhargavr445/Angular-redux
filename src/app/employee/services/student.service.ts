@@ -14,7 +14,7 @@ export class StudentService {
   private ngRedux: NgRedux<AppState>) { }
   getStudentDetails() {
     this.http.get('../../../assets/data/data.json').subscribe(data =>{
-      console.log(data.json());
+   //   console.log(data.json());
       this.ngRedux.dispatch({ type: DETAIL_DB_DATA, dbObj: data.json() });
       this.ngRedux.dispatch({ type: FORM_DATA, detailFormObj: data.json() });
     })

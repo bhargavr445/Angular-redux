@@ -10,7 +10,7 @@ export class SubmitDirective {
   @HostListener('keyup', ['$event'])
     onkeyup(event: any)
     {
-        console.log(event.keyCode)
+     //   console.log(event.keyCode)
 
         if (event.keyCode == 13) { // 13 = enter
            // event.stopPropagation();

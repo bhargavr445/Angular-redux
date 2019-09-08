@@ -1,9 +1,14 @@
 {
-  "name":"John",
-  "age":30,
-  "cars": {
-    "car1":"Ford",
-    "car2":"BMW",
-    "car3":"Fiat"
-  }
- }
+  "name": "Bhargav",
+  "age": 27,
+  "address": [
+    {
+      "streetAdress": "9335 LeeHwy",
+      "city": "FairFax"
+    },
+    {
+      "streetAdress": "9445 LeeHwy",
+      "city": "Falls Church"
+    }
+  ]
+}

@@ -11,8 +11,7 @@ import { LandingModule } from '../app/landing/landing.module';
 import { LandingComponent } from '../app/landing/landing.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './shared.module';
-import { environment } from '../environments/environment';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
@@ -36,7 +35,7 @@ import { HeaderComponent } from './header/header.component';
     // StoreDevtoolsModule.instrument({
     //   maxAge: 25 //  Retains last 25 states
     // }),
-   // !environment.production ? StoreDevtoolsModule.instrument() : []
+    
   ],
   providers: [AppServiceService],
   bootstrap: [AppComponent]

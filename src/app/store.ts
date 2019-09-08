@@ -6,6 +6,7 @@ import {LandingAppState, LANDING_INITIAL_STATE, landingReducer} from './home/sto
 import { combineReducers } from 'redux';
 import { AppLandingPage, APPLANDING_INITIAL_STATE, ApplandingReducer } from '../app/landing/store';
 import { EmployeeAppState, EMPLOYEE_INITIAL_STATE, EmployeeReducer } from './employee/store';
+import { EmployeeAddressState, EMPLOYEE_ADDRESS_INITIAL_STATE, EmployeeAddressReducer } from './employee/employee-details/employee-centercontent/employee-contact-info/store';
 //this is for the feature module 
 
 
@@ -16,6 +17,8 @@ export interface AppState {
    appLanding: AppLandingPage;
 
    employee: EmployeeAppState;
+
+   empAddress: EmployeeAddressState;
  
 
 }
@@ -28,6 +31,9 @@ export const INITIAL_STATE: AppState = {
   appLanding: APPLANDING_INITIAL_STATE,
 
   employee: EMPLOYEE_INITIAL_STATE,
+
+  empAddress: EMPLOYEE_ADDRESS_INITIAL_STATE
+
   
  
   
@@ -43,5 +49,7 @@ export const rootReducer = combineReducers({
     appLanding: ApplandingReducer,
 
     employee: EmployeeReducer,
+
+    empAddress: EmployeeAddressReducer,
 
 })

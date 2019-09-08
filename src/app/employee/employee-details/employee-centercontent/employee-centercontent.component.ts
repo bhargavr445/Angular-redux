@@ -23,17 +23,19 @@ export class EmployeeCentercontentComponent implements OnInit {
   constructor(private ngRedux: NgRedux<AppState>, private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.router.url);
+    //console.log(this.router.url);
     this.ngRedux.select(state => {
       return state.employee.detailFormObj
     }).subscribe(data => {
       this.empDetails = data;
-      console.log(this.empDetails);
+     // console.log(this.empDetails);
     })
     this.ngRedux.select(state => {
       return state.employee.activePanel
     }).subscribe(data => {
+     
       this.activePanel = data;
+    //   console.log(this.activePanel);
     });
   }
 

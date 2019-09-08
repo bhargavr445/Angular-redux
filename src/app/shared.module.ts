@@ -8,7 +8,8 @@ import { RouterModule }             from "@angular/router";
 import { SubmitDirective } from './submit.directive';
 import { StoreModule } from '@ngrx/store';
 import { rootReducer, INITIAL_STATE } from './store';
-
+import { environment } from '../environments/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 @NgModule({
   declarations: [SubmitDirective],
   imports: [
@@ -18,6 +19,7 @@ import { rootReducer, INITIAL_STATE } from './store';
     NgReduxModule,
     RouterModule,
     StoreModule.forRoot({rootReducer}),
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ]
 })
 export class SharedModule { 
