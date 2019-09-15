@@ -6,6 +6,7 @@ import { NgRedux } from '@angular-redux/store';
 import { AppState } from '../../store';
 import { DETAIL_DB_DATA, FORM_DATA } from '../../actions';
 
+
 @Injectable({
   providedIn: 'root'
 })

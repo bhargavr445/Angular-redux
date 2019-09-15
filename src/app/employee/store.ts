@@ -13,7 +13,7 @@ export const EMPLOYEE_INITIAL_STATE:  EmployeeAppState = {
     formObj: [],
     dbObj: null,
     detailFormObj: null,
-    activePanel: null,
+    activePanel: 'infoPanel',
     
 }
 
@@ -25,7 +25,7 @@ function empFilter(state: EmployeeAppState, action){
 function detailDbObj(state: EmployeeAppState, action){
     var newState = state;
     newState.dbObj = action.dbObj
-   
+   console.log(newState.dbObj);
     return tassign(state, newState);
 }
 function formObj(state: EmployeeAppState, action){

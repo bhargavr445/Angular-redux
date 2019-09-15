@@ -6,6 +6,7 @@ import { EmployeePrimaryInfoComponent } from './employee-primary-info.component'
 import { EmployeeDetailResolverService } from '../../../services/employee-detail-resolver.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from '../../../../shared.module';
 
 @NgModule({
   declarations: [EmployeePrimaryInfoComponent],
@@ -14,7 +15,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     ReactiveFormsModule,
     FormsModule,
-    EmployeePrimaryInfoRoutingModule
+    EmployeePrimaryInfoRoutingModule,
+    SharedModule
   ],
   providers:[
     EmployeeDetailResolverService

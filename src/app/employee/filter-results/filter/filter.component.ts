@@ -25,7 +25,11 @@ export class FilterComponent implements OnInit, OnDestroy {
   stuDetails: any;
   showDetails: boolean = false;
   employeeForm: any;
-  employees: any = [{ id: 1, name: "test" }, { id: 2, name: "test" }, { id: 3, name: "test" }];
+  employees: any = [
+                      { id: 1, name: "test" }, 
+                      { id: 2, name: "test" }, 
+                      { id: 3, name: "test" }
+                    ];
 
   constructor(private route: ActivatedRoute,
               private studentService: StudentService,

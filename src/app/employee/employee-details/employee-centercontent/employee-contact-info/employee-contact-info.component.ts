@@ -6,6 +6,7 @@ import { Employee } from '../../../models/Employee';
 import { EmployeeContact } from '../../../models/EmpAddressModel';
 import { FormGroup } from '@angular/forms';
 import { UPDATE_ADDRESS_LIST } from '../../../../actions';
+import { tassign } from 'tassign';
 
 @Component({
   selector: 'app-employee-contact-info',
@@ -19,6 +20,8 @@ export class EmployeeContactInfoComponent implements OnInit, OnDestroy {
   empDetails: Employee;
   edit: boolean = false;
   empAddress: Array<EmployeeContact>;
+  editMode: boolean = false;
+
   constructor(private fb: FormBuilder,
               private ngRedux: NgRedux<AppState>) {
 
@@ -29,7 +32,8 @@ export class EmployeeContactInfoComponent implements OnInit, OnDestroy {
     this.ngRedux.select(state => {
       return state.employee.dbObj;
     }).subscribe(result => {
-      this.empDetails = JSON.parse(JSON.stringify(result));
+     // this.empDetails = JSON.parse(JSON.stringify(result));
+      this.empDetails = tassign(this.empDetails, result);
       this.empAddress = this.empDetails.address;
       const control = (<FormArray>this.empForm.get('addressForm'));
       if (this.empAddress) {
@@ -47,7 +51,6 @@ export class EmployeeContactInfoComponent implements OnInit, OnDestroy {
     })
     return form;
   }
-
 
   ngOnDestroy(): void {
     // console.log('COntact COmponent Destroyed');
@@ -78,10 +81,19 @@ export class EmployeeContactInfoComponent implements OnInit, OnDestroy {
     this.edit = false;
     let empCt: EmployeeContact;
     empCt = control.at(index).value;
-    this.empAddress.push(empCt);
+    if (this.editMode) {
+      this.empAddress.splice(index, 1, empCt);
+      this.editMode = false;
+    }
+    else {
+
+      this.empAddress.push(empCt);
+
+    }
     this.ngRedux.dispatch({ type: UPDATE_ADDRESS_LIST, addressList: this.empAddress });
+
   }
-  
+
   deleteAddress(index: number) {
     const control: FormArray = <FormArray>this.empForm.controls['addressForm'];
     control.removeAt(index);
@@ -92,10 +104,18 @@ export class EmployeeContactInfoComponent implements OnInit, OnDestroy {
   editAddress(index) {
     this.editRow = index;
     this.edit = true;
+    this.editMode = true;
     const control: FormArray = <FormArray>this.empForm.controls['addressForm'];
   }
 
   cancel(i) {
+   if(this.editMode) {
+    this.editMode = false;
+    this.edit = false;
+   } else {
+    const control: FormArray = <FormArray>this.empForm.controls['addressForm'];
+   control.removeAt(i);
+   }
 
   }
 
